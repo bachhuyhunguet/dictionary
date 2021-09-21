@@ -10,7 +10,7 @@ public class app {
 //        dictionaryCommandline.showAllWords(dictionary);
 //        dictionaryCommandline.dictionarySearcher(dictionary);
 
-        // khi nào muốn lưu giữ liệu của dictionary vào file thì dùng hàm này
+        // khi nào muốn lưu giữ liệu của dictionary vào file thì dùng hàm này, file cũ sẽ bị ghi đè 
         dictionaryManagement.dictionaryExportToFile(dictionary);
     }
 }
