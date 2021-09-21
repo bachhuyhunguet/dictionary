@@ -1,6 +1,7 @@
-Hello_Xin chao
-formal_Trang Trong
-learn_Học
-team_Nhóm
-student_học sinh
+hello_xin cha
+honest_trung thuc
+study_hoc
+student_hoc sinh
 teacher_giang vien
+friend_ban
+sexy_goi cam
