@@ -48,7 +48,6 @@ public class DictionaryManagement {
         Scanner cin = new Scanner(System.in);
         String input;
         input = cin.nextLine();
-        System.out.println(input);
         Dictionary temp = new Dictionary();
         DictionaryCommandline dictionaryCommandline = new DictionaryCommandline();
 
