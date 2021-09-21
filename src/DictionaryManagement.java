@@ -65,6 +65,7 @@ public class DictionaryManagement {
     }
 
     public void dictionaryExportToFile(Dictionary dictionary) throws IOException {
+        //file cũ sẽ bị ghi đè bởi dữ liệu trong dictionary
         FileWriter writer = new FileWriter(this.url, false);
         for(int i = 0; i < dictionary.list_word.size(); i++) {
             String temp = dictionary.get(i).getWord_target() + this.wall + dictionary.get(i).getWord_explain() + '\n';
