@@ -2,12 +2,14 @@ import java.io.*;
 import java.lang.reflect.GenericDeclaration;
 import java.util.Scanner;
 
+
 public class DictionaryManagement {
-    public static String url = "C:\\Users\\nguye\\OneDrive\\Desktop\\DictionaryProject\\src\\input\\dictionaries.txt";
+    public static String url = "E:\\dictionary\\dictionary\\src\\input\\dictionaries.txt";
     public static char wall = '_';
-    // truyen dictionary cu va return ra nham luu tru
-    // ham nay toi de la class vi de la void thi khong biet luu lai kieu gi
-    public Dictionary InserFromCommandLine(Dictionary dictionary )
+
+    private Scanner scanner = new Scanner(System.in);
+
+    public void InserFromCommandLine(Dictionary dictionary )
     {
         Word word = new Word();
         Scanner scanner = new Scanner(System.in);
@@ -17,10 +19,9 @@ public class DictionaryManagement {
         System.out.println("Tieng viet: ");
         word.setWord_explain(scanner.nextLine());
         dictionary.add(word);
-        return dictionary;
     }
 
-    public Dictionary InsertFromFile(Dictionary dictionary) throws FileNotFoundException {
+    public void InsertFromFile(Dictionary dictionary) throws FileNotFoundException {
         File input = new File(this.url);
         Scanner scanner = new Scanner(input);
         while (scanner.hasNextLine()) {
@@ -41,13 +42,13 @@ public class DictionaryManagement {
             dictionary.add(new_word);
          }
 
-        return dictionary;
     }
 
     public void dictionaryLookup( Dictionary dictionary ) throws FileNotFoundException {
         Scanner cin = new Scanner(System.in);
         String input;
         input = cin.nextLine();
+        System.out.println(input);
         Dictionary temp = new Dictionary();
         DictionaryCommandline dictionaryCommandline = new DictionaryCommandline();
 
@@ -64,7 +65,6 @@ public class DictionaryManagement {
     }
 
     public void dictionaryExportToFile(Dictionary dictionary) throws IOException {
-        //file cũ sẽ bị ghi đè bởi dữ liệu trong dictionary
         FileWriter writer = new FileWriter(this.url, false);
         for(int i = 0; i < dictionary.list_word.size(); i++) {
             String temp = dictionary.get(i).getWord_target() + this.wall + dictionary.get(i).getWord_explain() + '\n';
@@ -72,6 +72,28 @@ public class DictionaryManagement {
         }
 
         writer.close();
+    }
+
+    public void FixOrremove(Dictionary dictionary, int i) {
+        // sau này khi có đồ họa thì hiên chữ nào đó thì return ra giá trị của nó trong list
+
+        int a = scanner.nextInt();
+        if (a == 1) { // a = 1 thì xóa đại diện cho button xóa sau này
+            dictionary.remove(i);
+        }
+        if (a == 2) {
+            Word new_word = new Word();
+            System.out.println("Nhap tu moi theo anh, viet");
+            // khởi tạo từ mới
+            Scanner scanner = new Scanner(System.in);
+            String english = scanner.nextLine();
+            new_word.setWord_target(english); // gan tieng anh cho new_word
+            String vietnamese = scanner.nextLine();
+            new_word.setWord_explain(vietnamese); // gan tieng viet cho new_word
+            scanner.close();
+            dictionary.set(new_word,i); // thay doi gia tri cua dictionary[i]
+        }
+        //dictionaryExportToFile(dictionary);
     }
 
 }

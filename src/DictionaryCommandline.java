@@ -21,7 +21,7 @@ public class DictionaryCommandline  {
     }
 
     public void dictionaryBasic(Dictionary dictionary,  DictionaryManagement dictionaryManagement ) throws FileNotFoundException {
-        dictionary = dictionaryManagement.InsertFromFile(dictionary);
+        dictionaryManagement.InsertFromFile(dictionary);
         this.showAllWords(dictionary);
     }
 
