@@ -13,7 +13,6 @@ public class DictionaryCommandline  {
         return line;
     }
 
-
     public String dictionarySearcher(Dictionary dictionary, String input) {
 
         Dictionary temp = new Dictionary();
@@ -26,5 +25,26 @@ public class DictionaryCommandline  {
             }
         }
         return this.showAllWordsWordEnglish(temp);
+    }
+
+    public void dictionaryDelete(Dictionary dictionary, String delete) {
+        for (int i = 0; i < dictionary.size(); i++) {
+            if (dictionary.get(i).getWord_explain().equals(delete) || dictionary.get(i).getWord_target().equals(delete)) {
+                dictionary.remove(i);
+                break;
+            }
+        }
+    }
+
+    private boolean checkInDictionary(Dictionary dictionary, Word word) {
+        for (int i = 0; i < dictionary.size(); i++) {
+            if (dictionary.get(i).equals(word)) return true;
+        }
+        return false;
+    }
+
+    public void Add(Dictionary dictionary, Word word) {
+        if (checkInDictionary(dictionary,word))
+        dictionary.add(word);
     }
 }

@@ -3,7 +3,7 @@ import java.io.*;
 import java.util.Scanner;
 
 public class DictionaryManagement {
-    public static String url = "E:\\dictionary\\dictionary\\src\\input\\dictionaries.txt";
+    public static String url = "E:\\dictionary\\javafx\\input\\dictionaries.txt";
     public static char wall = '_';
 
     public Dictionary InsertFromFile(Dictionary dictionary) throws FileNotFoundException {

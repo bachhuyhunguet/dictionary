@@ -6,10 +6,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -24,6 +24,13 @@ public class HelloController implements Initializable{
     @FXML
     public Button search;
 
+    @FXML
+    public TextField English;
+    public TextField Viet;
+
+    @FXML
+    public TextField DeleteWord; // phan nhap tu can xoa
+
     public Dictionary dictionary = new Dictionary();
     public DictionaryManagement dictionaryManagement = new DictionaryManagement();
     public DictionaryCommandline dictionaryCommandline = new DictionaryCommandline();
@@ -37,6 +44,21 @@ public class HelloController implements Initializable{
         ouput.setText(s);
     }
 
+    public void Delete(ActionEvent event) throws IOException {
+        String s = DeleteWord.getText();
+        dictionaryCommandline.dictionaryDelete(dictionary, s);
+        dictionaryManagement.dictionaryExportToFile(dictionary);
+    }
+
+    public void Add(ActionEvent event) throws IOException {
+        String target = English.getText();
+        String explain = Viet.getText();
+        Word new_word = new Word();
+        new_word.setWord_target(target);
+        new_word.setWord_explain(explain);
+        dictionaryCommandline.Add(dictionary, new_word);
+        dictionaryManagement.dictionaryExportToFile(dictionary);
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -56,5 +78,6 @@ public class HelloController implements Initializable{
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+
     }
 }
