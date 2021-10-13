@@ -1,3 +1,4 @@
+hello_xin chào
 honest_trung thuc
 study_hoc
 null_null

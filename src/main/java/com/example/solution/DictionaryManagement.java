@@ -1,4 +1,7 @@
 package com.example.solution;
+import javafx.collections.ObservableList;
+import javafx.scene.control.ListView;
+
 import java.io.*;
 import java.util.Scanner;
 
@@ -50,5 +53,18 @@ public class DictionaryManagement {
         }
         System.out.println(ouput);
         return ouput;
+    }
+
+    public static boolean check_in_listview(ListView <String> listView, String s) {
+        ObservableList listOfItems = listView.getSelectionModel().getSelectedItems();
+
+        for (Object item : listOfItems) {
+            String test =  item.toString();
+            System.out.println(test);
+            if (s.equals((test))) {
+                return true;
+            }
+        }
+        return false;
     }
 }

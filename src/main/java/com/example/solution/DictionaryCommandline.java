@@ -1,5 +1,8 @@
 package com.example.solution;
+import javafx.scene.control.ListView;
+
 import java.io.FileNotFoundException;
+import java.util.Collection;
 import java.util.Scanner;
 
 public class DictionaryCommandline  {
@@ -13,18 +16,18 @@ public class DictionaryCommandline  {
         return line;
     }
 
-    public String dictionarySearcher(Dictionary dictionary, String input) {
-
-        Dictionary temp = new Dictionary();
+    public void dictionarySearcher(Dictionary dictionary, ListView <String> listView, String input) {
         for(int i = 0; i < dictionary.list_word.size(); i++) {
             String english = dictionary.get(i).getWord_target();
             if(english.length() >= input.length()) {
                 if(english.substring(0,input.length()).equals(input)) {
-                    temp.add(dictionary.get(i));
+                    if (!DictionaryManagement.check_in_listview(listView,dictionary.get(i).getWord_target())) {
+                        listView.getItems().addAll(dictionary.get(i).getWord_target());
+                        //System.out.println(dictionary.get(i).getWord_target());
+                    }
                 }
             }
         }
-        return this.showAllWordsWordEnglish(temp);
     }
 
     public void dictionaryDelete(Dictionary dictionary, String delete) {
