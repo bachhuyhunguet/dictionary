@@ -1,7 +1,6 @@
-hello_xin chào
 honest_trung thuc
 study_hoc
 null_null
 friend_ban
 sexy_goi cam
-obligate_ép buộc
+Hello_Xin chào

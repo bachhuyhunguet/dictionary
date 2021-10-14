@@ -4,6 +4,8 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
@@ -19,19 +21,37 @@
                <content>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <TextField layoutX="46.0" layoutY="78.0" prefHeight="26.0" prefWidth="351.0" AnchorPane.bottomAnchor="500.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="300.0" />
+                        <TextField fx:id="add_word_target" layoutX="46.0" layoutY="78.0" prefHeight="26.0" prefWidth="351.0" AnchorPane.bottomAnchor="500.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="300.0" />
                         <Text layoutX="444.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tiếng Việt" wrappingWidth="65.336669921875" AnchorPane.bottomAnchor="500.0" AnchorPane.leftAnchor="450.0" AnchorPane.rightAnchor="179.0" />
-                        <TextField layoutX="50.0" layoutY="104.0" AnchorPane.bottomAnchor="450.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="300.0" />
+                        <TextField fx:id="add_word_explain" layoutX="50.0" layoutY="104.0" AnchorPane.bottomAnchor="450.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="300.0" />
                         <Text layoutX="450.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tiếng Anh" AnchorPane.bottomAnchor="455.18828125000005" AnchorPane.rightAnchor="190.46445312499998" />
-                        <Button layoutX="529.0" layoutY="79.0" mnemonicParsing="false" text="Thêm" />
+                        <Button layoutX="529.0" layoutY="79.0" mnemonicParsing="false" onAction="#ButtonAdd" text="Thêm" />
                      </children>
                   </AnchorPane>
                </content>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/add.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Tab>
           <Tab text="Xóa">
                <content>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="DeleteWord" layoutX="51.0" layoutY="57.0" prefHeight="26.0" prefWidth="222.0" />
+                        <Button layoutX="325.0" layoutY="58.0" mnemonicParsing="false" onAction="#ButtonDelete" text="Xóa" />
+                     </children></AnchorPane>
                </content>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/delete.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Tab>
         </tabs>
       </TabPane>

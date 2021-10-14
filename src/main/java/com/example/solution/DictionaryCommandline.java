@@ -30,7 +30,7 @@ public class DictionaryCommandline  {
         }
     }
 
-    public void dictionaryDelete(Dictionary dictionary, String delete) {
+    public void Delete(Dictionary dictionary, String delete) {
         for (int i = 0; i < dictionary.size(); i++) {
             if (dictionary.get(i).getWord_explain().equals(delete) || dictionary.get(i).getWord_target().equals(delete)) {
                 dictionary.remove(i);
@@ -41,13 +41,13 @@ public class DictionaryCommandline  {
 
     private boolean checkInDictionary(Dictionary dictionary, Word word) {
         for (int i = 0; i < dictionary.size(); i++) {
-            if (dictionary.get(i).equals(word)) return true;
+            if (dictionary.get(i).getWord_target().equals(word.getWord_target()) || dictionary.get(i).getWord_explain().equals(word.getWord_explain())) return true;
         }
         return false;
     }
 
     public void Add(Dictionary dictionary, Word word) {
-        if (checkInDictionary(dictionary,word))
+        if (!checkInDictionary(dictionary,word))
         dictionary.add(word);
     }
 }

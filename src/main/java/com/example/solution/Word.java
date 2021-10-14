@@ -5,15 +5,20 @@ public class Word {
         this.word_explain = "m";
     }
 
+    public Word(String target, String explain) {
+        this.word_target = target;
+        this.word_explain = explain;
+    }
+
     private
         String word_target;
         String word_explain;
 
     public void setWord_target(String target) {
-        word_target = target;
+        this.word_target = target;
     }
     public void setWord_explain(String explain) {
-        word_explain = explain;
+        this.word_explain = explain;
     }
     public String getWord_target() {
         return  word_target;
