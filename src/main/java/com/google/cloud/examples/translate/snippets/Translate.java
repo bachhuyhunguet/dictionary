@@ -156,30 +156,6 @@ public class Translate  {
         }
     }
 
-    public static void main(String[] args) throws IOException {
-        final long startTime = System.currentTimeMillis();
-        GoogleTranslate testGG = new GoogleTranslate();
-        Oxford testOF = new Oxford();
-        String text = "project";
-        System.out.println(testGG.getGoogleData(text));
-        OxfordData oxfordData = new OxfordData();
-        oxfordData = testOF.getOxfordData(text);
-        final long endTime = System.currentTimeMillis();
-        for (int i = 0; i < oxfordData.ipa.size(); i++) {
-            System.out.println(oxfordData.ipa.get(i));
-        }
-
-
-        for(int i = 0; i < oxfordData.defineExamples.size(); i++) {
-            System.out.println("define:" + oxfordData.defineExamples.get(i).define);
-            for(int j = 0; j < oxfordData.defineExamples.get(i).example.size(); j++) {
-                System.out.println("    example:" + oxfordData.defineExamples.get(i).example.get(j));
-            }
-        }
-        System.out.println(endTime - startTime);
-
-        System.out.println(oxfordData.audio);
-    }
 
 }
 
