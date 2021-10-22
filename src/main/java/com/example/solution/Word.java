@@ -1,4 +1,7 @@
 package com.example.solution;
+
+import java.util.Objects;
+
 public class Word {
     public Word() {
         this.word_target = "m";
@@ -27,4 +30,16 @@ public class Word {
         return  word_explain;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Word word = (Word) o;
+        return Objects.equals(word_target, word.word_target) && Objects.equals(word_explain, word.word_explain);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(word_target, word_explain);
+    }
 }

@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -11,11 +12,11 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1300.0" style="-fx-background-image: url(&quot;https://scontent.fhan5-9.fna.fbcdn.net/v/t39.30808-6/241203026_577141873606494_2503242843157473103_n.jpg?_nc_cat=109&amp;ccb=1-5&amp;_nc_sid=730e14&amp;_nc_ohc=BfOs3skVYeIAX9KSqPZ&amp;tn=vevCxgaCCuICVmVC&amp;_nc_ht=scontent.fhan5-9.fna&amp;oh=dee01d8d27e583f8ee86ce733b9f253c&amp;oe=616C14CF&quot;);" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafx.HelloController">
     <children>
-        <AnchorPane fx:id="content" layoutX="300.0" layoutY="50.0" prefHeight="700.0" prefWidth="950.0" style="-fx-background-color: #333; -fx-background-radius: 50px;" styleClass="bgControl">
+        <AnchorPane fx:id="content" layoutX="300.0" layoutY="50.0" prefHeight="600.0" prefWidth="950.0" style="-fx-background-color: #333; -fx-background-radius: 50px;" styleClass="bgControl" AnchorPane.bottomAnchor="59.0" AnchorPane.topAnchor="59.0">
             <children>
-                <AnchorPane fx:id="contentSearch" prefHeight="700.0" prefWidth="950.0" style="-fx-background-color: #333; -fx-background-radius: 50px;">
+                <AnchorPane fx:id="contentSearch" layoutX="6.0" prefHeight="682.0" prefWidth="975.0" style="-fx-background-color: #333; -fx-background-radius: 50px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="-6.0" AnchorPane.topAnchor="0.0">
                     <children>
-                        <AnchorPane layoutX="50.0" layoutY="50.0" prefHeight="50.0" prefWidth="600.0">
+                        <AnchorPane layoutX="50.0" layoutY="50.0" prefHeight="50.0" prefWidth="600.0" style="visibility: true;">
                             <children>
                                 <TextField fx:id="inputSearch" prefWidth="490.0" promptText="Nhập từ cần tìm" style="-fx-font-size: 16px; -fx-font-weight: 600;">
                                     <padding>
@@ -38,17 +39,61 @@
                         </AnchorPane>
                     </children>
                 </AnchorPane>
-                <AnchorPane fx:id="contentNote" prefHeight="700.0" prefWidth="950.0" style="-fx-background-color: #333; -fx-background-radius: 50px; visibility: false;">
-                    <children>
-                        <Button layoutX="400.0" layoutY="249.0" mnemonicParsing="false" text="content node" />
-                    </children>
+                <AnchorPane fx:id="contentNote" prefHeight="700.0" prefWidth="950.0" style="-fx-background-color: #333; -fx-background-radius: 50px; visibility: false;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <AnchorPane fx:id="contentAdd" layoutY="216.0" prefHeight="589.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="200.0">
+                     <children>
+                        <TextField fx:id="inputEnglish" layoutY="28.0" prefHeight="30.0" prefWidth="307.0" promptText="Nhập từ tiếng Anh" style="-fx-background-image: #00FFFF;" AnchorPane.bottomAnchor="424.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="700.0" AnchorPane.topAnchor="28.0" />
+                        <TextField fx:id="inputViet" layoutY="106.0" prefHeight="30.0" prefWidth="307.0" promptText="Nhập từ tiếng Việt" style="-fx-background-image: #00FFFF;" AnchorPane.bottomAnchor="346.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="700.0" AnchorPane.topAnchor="106.0" />
+                        <Button mnemonicParsing="false" onAction="#add" prefHeight="63.0" prefWidth="91.0" text="Button" AnchorPane.bottomAnchor="379.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="509.0" AnchorPane.topAnchor="40.0">
+                           <graphic>
+                              <ImageView fitHeight="48.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/addbutton.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <Button alignment="CENTER" minHeight="0.0" mnemonicParsing="false" onAction="#anchorAdd" prefHeight="62.0" prefWidth="100.0" text="Thêm" AnchorPane.bottomAnchor="590.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="820.0" AnchorPane.topAnchor="30.0">
+                     <graphic>
+                        <ImageView fitHeight="67.0" fitWidth="141.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/add.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#anchorDelete" prefHeight="62.0" prefWidth="100.0" text="Xóa" AnchorPane.bottomAnchor="590.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="650.0" AnchorPane.topAnchor="30.0">
+                     <graphic>
+                        <ImageView fitHeight="61.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/delete.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <AnchorPane fx:id="contentDelete" layoutY="644.0" prefHeight="530.0" prefWidth="718.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="200.0">
+                     <children>
+                        <TextField fx:id="inputWord" layoutY="14.0" prefHeight="31.0" prefWidth="274.0" promptText="Nhập từ muốn xóa" style="-fx-background-image: #00FFFF;" AnchorPane.bottomAnchor="415.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="681.0" AnchorPane.topAnchor="28.0" />
+                        <Button layoutX="325.0" layoutY="42.0" mnemonicParsing="false" onAction="#delete" prefHeight="34.0" prefWidth="54.0" text="Xóa" AnchorPane.bottomAnchor="415.0" AnchorPane.leftAnchor="325.0" AnchorPane.rightAnchor="575.0" AnchorPane.topAnchor="28.0">
+                           <graphic>
+                              <ImageView fitHeight="48.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/deletebuton.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <Button layoutX="516.0" mnemonicParsing="false" onAction="#showAll" prefHeight="62.0" prefWidth="100.0" text="Show All" AnchorPane.bottomAnchor="590.0" AnchorPane.leftAnchor="516.0" AnchorPane.rightAnchor="334.0" AnchorPane.topAnchor="30.0" />
+                  <ListView fx:id="viewAll" layoutX="612.0" layoutY="198.0" onMouseClicked="#itemShow" prefHeight="312.0" prefWidth="266.0" />
+               </children>
                 </AnchorPane>
-                <AnchorPane fx:id="contentGame" prefHeight="700.0" prefWidth="950.0" style="-fx-background-color: #333; -fx-background-radius: 50px; visibility: false;">
-                    <children>
-                        <Button layoutX="443.0" layoutY="222.0" mnemonicParsing="false" text="content game" />
-                    </children>
-                </AnchorPane>
-                <AnchorPane fx:id="contentSetting" prefHeight="700.0" prefWidth="950.0" style="-fx-background-color: #333; -fx-background-radius: 50px; visibility: false;">
+                <AnchorPane fx:id="contentGame" prefHeight="700.0" prefWidth="950.0" style="-fx-background-color: #333; -fx-background-radius: 50px; visibility: false;" AnchorPane.bottomAnchor="0.0" />
+                <AnchorPane fx:id="contentSetting" prefHeight="700.0" prefWidth="950.0" style="-fx-background-color: #333; -fx-background-radius: 50px; visibility: false;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <children>
                         <Button layoutX="416.0" layoutY="296.0" mnemonicParsing="false" text="content setting" />
                     </children>

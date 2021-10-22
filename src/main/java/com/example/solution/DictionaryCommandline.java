@@ -2,16 +2,18 @@ package com.example.solution;
 import javafx.scene.control.ListView;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Scanner;
 
 public class DictionaryCommandline  {
     public static int spaceword = 30;
-    public String showAllWordsWordEnglish(Dictionary dictionar) {
-        String line = "";
+    public List<String> showAllWordsWord(Dictionary dictionar) {
+        List<String> line = new ArrayList<>();
         for(int i = 0; i < dictionar.list_word.size(); i++) {
-            String english = dictionar.list_word.get(i).getWord_target();
-            line += english + "\n";
+            String english = dictionar.list_word.get(i).getWord_target() + ": " + dictionar.list_word.get(i).getWord_explain() ;
+            line.add(english);
         }
         return line;
     }
@@ -30,6 +32,15 @@ public class DictionaryCommandline  {
         }
     }
 
+    public boolean wordInDictionary(Dictionary dictionary, String word) {
+        for (int i = 0; i < dictionary.size(); i++) {
+            if (dictionary.get(i).getWord_explain().equals(word) || dictionary.get(i).getWord_target().equals(word)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void Delete(Dictionary dictionary, String delete) {
         for (int i = 0; i < dictionary.size(); i++) {
             if (dictionary.get(i).getWord_explain().equals(delete) || dictionary.get(i).getWord_target().equals(delete)) {
@@ -39,9 +50,9 @@ public class DictionaryCommandline  {
         }
     }
 
-    private boolean checkInDictionary(Dictionary dictionary, Word word) {
+    public boolean checkInDictionary(Dictionary dictionary, Word word) {
         for (int i = 0; i < dictionary.size(); i++) {
-            if (dictionary.get(i).getWord_target().equals(word.getWord_target()) || dictionary.get(i).getWord_explain().equals(word.getWord_explain())) return true;
+            if (dictionary.get(i).getWord_target().equals(word.getWord_target()) && dictionary.get(i).getWord_explain().equals(word.getWord_explain())) return true;
         }
         return false;
     }
@@ -50,4 +61,5 @@ public class DictionaryCommandline  {
         if (!checkInDictionary(dictionary,word))
         dictionary.add(word);
     }
+
 }

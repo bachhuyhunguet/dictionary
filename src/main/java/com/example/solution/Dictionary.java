@@ -1,10 +1,11 @@
 package com.example.solution;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Vector;
 
 public class Dictionary {
-    List <Word> list_word = new Vector<>();
+    public List <Word> list_word = new Vector<>();
 
     public void add(Word word) {
         list_word.add(word);
@@ -29,12 +30,8 @@ public class Dictionary {
         list_word.remove(i);
     }
 
-    public boolean CheckInDictionary(Word word) {
-        for (int i = 0; i < list_word.size(); i++) {
-            if (word.equals(list_word.get(i).getWord_target())) {
-                return true;
-            }
-        }
-        return false;
+    public void remove(Word word) {
+        list_word.remove(word);
     }
+
 }

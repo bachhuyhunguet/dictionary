@@ -9,6 +9,26 @@ public class DictionaryManagement {
     public static String url = "E:\\dictionary\\javafx\\input\\dictionaries.txt";
     public static char wall = '_';
 
+    public String setEnglish(String m) {
+        for (int i = 1; i < m.length() - 1; i++) {
+            if (m.charAt(i) == ':') {
+                return m.substring(1,i); // gán từ tiếng anh cho Word_target
+            }
+        }
+        return null;
+    }
+
+    public String setVietNames(String m) {
+        int vt = 1;
+        for (int i = 1; i < m.length() - 1; i++) {
+            if (m.charAt(i) == ':') {
+                vt = i + 2;
+                break;
+            }
+        }
+        return m.substring(vt,m.length() - 1);
+    }
+
     public Dictionary InsertFromFile(Dictionary dictionary) throws FileNotFoundException {
         File input = new File(this.url);
         Scanner scanner = new Scanner(input);
