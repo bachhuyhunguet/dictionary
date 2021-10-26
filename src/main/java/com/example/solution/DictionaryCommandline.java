@@ -12,25 +12,43 @@ public class DictionaryCommandline  {
     public List<String> showAllWordsWord(Dictionary dictionar) {
         List<String> line = new ArrayList<>();
         for(int i = 0; i < dictionar.list_word.size(); i++) {
-            String english = dictionar.list_word.get(i).getWord_target() + ": " + dictionar.list_word.get(i).getWord_explain() ;
-            line.add(english);
+            String english = dictionar.list_word.get(i).getWord_target() + "\n" + dictionar.list_word.get(i).getWord_explain();
+            //System.out.println(english);
+            if (!english.equals("\n")) {
+                line.add(english);
+            }
+            else {
+                continue;
+            }
         }
         return line;
     }
 
-    public void dictionarySearcher(Dictionary dictionary, ListView <String> listView, String input) {
-        for(int i = 0; i < dictionary.list_word.size(); i++) {
-            String english = dictionary.get(i).getWord_target();
-            if(english.length() >= input.length()) {
-                if(english.substring(0,input.length()).equals(input)) {
-                    if (!DictionaryManagement.check_in_listview(listView,dictionary.get(i).getWord_target())) {
-                        listView.getItems().addAll(dictionary.get(i).getWord_target());
-                        //System.out.println(dictionary.get(i).getWord_target());
-                    }
-                }
+   public Word dictionarySearcher(Dictionary dictionary, String input) {
+       for (int i = 0; i < dictionary.size(); i++) {
+            if (dictionary.get(i).getWord_target().equals(input)) {
+                return dictionary.get(i);
             }
         }
+        return null;
+       /*int n = dictionary.size();
+       int l = 0;
+       int r = n - 1;
+       while(l < r) {
+           int mid = (l+r)/2;
+           if (dictionary.get(mid).getWord_target().compareTo(input) < 0) {
+               l = mid + 1;
+           }
+           else if (dictionary.get(mid).getWord_target().compareTo(input) > 0) {
+               r = mid - 1;
+           }
+           else {
+               return dictionary.get(mid);
+           }
+       }
+       return null;*/
     }
+
 
     public boolean wordInDictionary(Dictionary dictionary, String word) {
         for (int i = 0; i < dictionary.size(); i++) {
@@ -51,6 +69,7 @@ public class DictionaryCommandline  {
     }
 
     public boolean checkInDictionary(Dictionary dictionary, Word word) {
+        if (word == null) return true;
         for (int i = 0; i < dictionary.size(); i++) {
             if (dictionary.get(i).getWord_target().equals(word.getWord_target()) && dictionary.get(i).getWord_explain().equals(word.getWord_explain())) return true;
         }

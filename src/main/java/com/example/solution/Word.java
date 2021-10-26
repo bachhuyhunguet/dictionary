@@ -4,8 +4,8 @@ import java.util.Objects;
 
 public class Word {
     public Word() {
-        this.word_target = "m";
-        this.word_explain = "m";
+        this.word_target = "a";
+        this.word_explain = "a";
     }
 
     public Word(String target, String explain) {
@@ -42,4 +42,5 @@ public class Word {
     public int hashCode() {
         return Objects.hash(word_target, word_explain);
     }
+
 }

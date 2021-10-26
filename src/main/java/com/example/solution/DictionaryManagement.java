@@ -7,11 +7,10 @@ import java.util.Scanner;
 
 public class DictionaryManagement {
     public static String url = "E:\\dictionary\\javafx\\input\\dictionaries.txt";
-    public static char wall = '_';
 
     public String setEnglish(String m) {
         for (int i = 1; i < m.length() - 1; i++) {
-            if (m.charAt(i) == ':') {
+            if (m.charAt(i) == '\n') {
                 return m.substring(1,i); // gán từ tiếng anh cho Word_target
             }
         }
@@ -21,45 +20,75 @@ public class DictionaryManagement {
     public String setVietNames(String m) {
         int vt = 1;
         for (int i = 1; i < m.length() - 1; i++) {
-            if (m.charAt(i) == ':') {
-                vt = i + 2;
+            if (m.charAt(i) == '\n') {
+                vt = i;
                 break;
             }
         }
         return m.substring(vt,m.length() - 1);
     }
 
-    public Dictionary InsertFromFile(Dictionary dictionary) throws FileNotFoundException {
-        File input = new File(this.url);
+    public Dictionary InsertFromFile(Dictionary dictionary, String url) throws FileNotFoundException {
+        File input = new File(url);
         Scanner scanner = new Scanner(input);
+
+        Word new_word = new Word();
+        String target = "";
+        String explain = "";
         while (scanner.hasNextLine()) {
             String m = scanner.nextLine();
-            Word new_word = new Word();
-            int vt = 0; // cai này lưu vị trí dấu cách trước nghĩa tiếng việt
-            for (int i = 0; i < m.length(); i++) {
-                if (m.charAt(i) == this.wall) {
-                    new_word.setWord_target(m.substring(0,i)); // gán từ tiếng anh cho Word_target
-                    vt = i + 1;
-                    break;
+            if (!target.isEmpty() && !m.isEmpty()) {
+                if (m.charAt(0) == '@') {
+                    new_word.setWord_explain(explain);
+                    new_word.setWord_target(target);
+                    dictionary.add(new_word);
+                    new_word = new Word();
+                    target = "";
+                    explain = "";
+                }
+
+            }
+            if (!m.isEmpty()) {
+                if (m.charAt(0) == '@') {
+                    int a = m.indexOf("/");
+                    if (a != -1) {
+                        target = target + m.substring(1,a-1);
+                        explain = explain + m.substring(a,m.length()) + "\n";
+
+                    } else {
+                        target = target + m.substring(1,m.length());
+                    }
+
+                }
+                else if (m.charAt(0) == '-' || m.charAt(0) == '*') {
+                    explain = explain + m.substring(1,m.length()) + "\n";
+                }
+                else if (m.charAt(0) == '=') {
+                    int vt = 0;
+                    for (int i = 1; i < m.length(); i++) {
+                        if (m.charAt(i) == '+') {
+                            explain = explain + m.substring(1,i) + "\n";
+                            explain = explain + m.substring(i + 1, m.length()) + "\n";
+                            break;
+                        }
+                    }
+                } else {
+                    explain = explain + m.substring(1,m.length()) + "\n";
                 }
             }
-
-            int m_size = m.length();
-            new_word.setWord_explain(m.substring(vt, m_size ));// gán nghĩa tiếng việt
-
-            dictionary.add(new_word);
         }
-
         return dictionary;
     }
 
     public void dictionaryExportToFile(Dictionary dictionary) throws IOException {
-        FileWriter writer = new FileWriter(this.url, false);
-        for(int i = 0; i < dictionary.list_word.size(); i++) {
-            String temp = dictionary.get(i).getWord_target() + this.wall + dictionary.get(i).getWord_explain() + '\n';
+        FileWriter writer = new FileWriter(this.url);
+        for(int i = 0; i < dictionary.size(); i++) {
+            String temp = "@" + dictionary.get(i).getWord_target() + "\n" + dictionary.get(i).getWord_explain() + "\n";
             writer.write(temp);
+            if (i == dictionary.size() -1) {
+                writer.write("@");
+            }
         }
-
         writer.close();
     }
 

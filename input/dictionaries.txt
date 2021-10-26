@@ -1,8 +1,21 @@
-study_hoc
-null_null
-friend_ban
-Hello_Xin chào
-obligate_ép buộc
-thanks_cảm ơn
-sexy_gợi cảm
-sex_gioi tinh
+@hello
+hə'lou/ (halloa) /hə'lou/ (hello) /'he'lou/
+ thán từ
+chào anh!, chào chị!
+này, này
+ô này! (tỏ ý ngạc nhiên)
+ danh từ
+tiếng chào
+tiếng gọi "này, này" !
+tiếng kêu ô này "! (tỏ ý ngạc nhiên)
+ nội động từ
+chào
+gọi "này, này" 
+kêu "ô này" (tỏ ý ngạc nhiên)
+
+@hello
+hə'lou/ (halloa) /hə'lou/ (hello) /'he'lou/  thán từ chào anh!, chào chị! này, này ô này! (tỏ ý ngạc nhiên)  danh từ tiếng chào tiếng gọi "này, này" ! tiếng kêu ô này "! (tỏ ý ngạc nhiên)  nội động từ chào gọi "này, này"  kêu "ô này" (tỏ ý ngạc nhiên)
+
+@hello
+hə'lou/ (halloa) /hə'lou/ (hello) /'he'lou/ thán từchào anh!, chào chị!này, nàyô này! (tỏ ý ngạc nhiên) danh từtiếng chàotiếng gọi "này, này" !tiếng kêu ô này "! (tỏ ý ngạc nhiên) nội động từchàogọi "này, này" kêu "ô này" (tỏ ý ngạc nhiên)
+@
