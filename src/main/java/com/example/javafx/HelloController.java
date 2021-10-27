@@ -1,27 +1,25 @@
 package com.example.javafx;
 
 import com.example.solution.*;
+import com.example.solution.Dictionary;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-import javafx.scene.text.Text;
-import javafx.util.Pair;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class HelloController implements Initializable{
 
@@ -71,12 +69,13 @@ public class HelloController implements Initializable{
         game.initGame();
     }
 
-    public Dictionary dictionaryEnglish = new Dictionary(); // dich tu tieng Anh sang tieng Viet
-    public Dictionary dictionary = new Dictionary();
-    public DictionaryManagement dictionaryManagement = new DictionaryManagement();
-    public DictionaryCommandline dictionaryCommandline = new DictionaryCommandline();
+    public static Dictionary dictionaryEnglish = new Dictionary(); // dich tu tieng Anh sang tieng Viet
+    public static Dictionary dictionary = new Dictionary();
+    public static DictionaryManagement dictionaryManagement = new DictionaryManagement();
+    public static DictionaryCommandline dictionaryCommandline = new DictionaryCommandline();
+    public static int IndexViewAllItem;
 
-    private List<String> list = new ArrayList<>();
+    public static List<String> list = new ArrayList<>();
 
 
     @FXML
@@ -163,7 +162,7 @@ public class HelloController implements Initializable{
     }
 
     @FXML
-    void showAll(ActionEvent event) {
+    public void showAll(ActionEvent event) {
         viewAll.setVisible(true);
         list = dictionaryCommandline.showAllWordsWord(dictionary);
         viewAll.getItems().clear();
@@ -171,8 +170,11 @@ public class HelloController implements Initializable{
     }
 
     @FXML // show ra item trong listView
-    void itemShow(MouseEvent event) {
+    void itemShow(MouseEvent event) throws IOException {
         if (!viewAll.getSelectionModel().getSelectedItems().equals("")) {
+            int n = viewAll.getSelectionModel().getSelectedIndex();
+            IndexViewAllItem = n;
+            System.out.println(n);
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Confirmation");
             alert.setHeaderText("Bạn có muốn sửa không");
@@ -185,61 +187,16 @@ public class HelloController implements Initializable{
             Optional<ButtonType> result = alert.showAndWait();
 
             if (result.get() == buttonTypeYes) {
-                System.out.println("lua chon thay doi");
-
-                Dialog<Pair<String, String>> dialog = new Dialog<>();
-                dialog.setTitle("Sửa");
-
-                ButtonType addButtonType = new ButtonType("Sửa", ButtonBar.ButtonData.OK_DONE);
-                dialog.getDialogPane().getButtonTypes().addAll(addButtonType, ButtonType.CANCEL);
-
-                GridPane grid = new GridPane();
-                grid.setHgap(10);
-                grid.setVgap(10);
-                grid.setPadding(new Insets(20, 150, 10, 10));
-
-                String word = viewAll.getSelectionModel().getSelectedItems().toString();
-                String E = dictionaryManagement.setEnglish(word);
-                String V = dictionaryManagement.setVietNames(word);
-                System.out.println(E + " : " + V );
-                TextField English = new TextField();
-                English.setText(E);
-                TextField VietNames = new TextField();
-                VietNames.setText(V);
-
-                grid.add(new Label("Tiếng Anh: "), 0,0);
-                grid.add(English, 1, 0);
-                grid.add(new Label("Tiếng Việt"), 0,1);
-                grid.add(VietNames, 1, 1);
-
-                dialog.getDialogPane().setContent(grid);
-
-                dialog.setResultConverter(dialogButton -> {
-                    if (dialogButton == addButtonType) {
-                        return new Pair<>(English.getText(), VietNames.getText());
-                    }
-                    return null;
-                });
-
-                Optional<Pair<String, String>> result_add = dialog.showAndWait();
-                result_add.ifPresent(fix -> {
-                    Word old_word = new Word();
-                    old_word.setWord_target(E);
-                    old_word.setWord_explain(V);
-                    System.out.println(E + "" + V);
-                    dictionary.remove(old_word);
-                    Word new_word = new Word();
-                    new_word.setWord_target(fix.getKey());
-                    new_word.setWord_explain(fix.getValue());
-                    dictionaryCommandline.Add(dictionary, new_word);
-                    try {
-                        dictionaryManagement.dictionaryExportToFile(dictionary);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                });
-
-                //dialog.show();
+                // Một cửa sổ mới (Stage)
+                Stage stage = new Stage();
+                Parent root = FXMLLoader.load(
+                        RepairController.class.getResource("repair.fxml"));
+                stage.setScene(new Scene(root));
+                stage.setTitle("Sửa từ");
+                stage.initModality(Modality.WINDOW_MODAL);
+                stage.initOwner(
+                        ((Node)event.getSource()).getScene().getWindow() );
+                stage.show();
             }
         }
     }
@@ -284,6 +241,7 @@ public class HelloController implements Initializable{
             alert.show();
         }
     }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

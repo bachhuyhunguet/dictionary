@@ -1,21 +1,51 @@
-@hello
-hə'lou/ (halloa) /hə'lou/ (hello) /'he'lou/
- thán từ
-chào anh!, chào chị!
-này, này
-ô này! (tỏ ý ngạc nhiên)
- danh từ
-tiếng chào
-tiếng gọi "này, này" !
-tiếng kêu ô này "! (tỏ ý ngạc nhiên)
- nội động từ
-chào
-gọi "này, này" 
-kêu "ô này" (tỏ ý ngạc nhiên)
+@hell
+ /hel/
+  danh từ
+ địa ngục, âm ti; nơi tối tăm khổ cực
+life is a hell under colonialism
+ dưới ách thực dân cuộc sống làm một địa ngục
+hell on earth
+ địa ngục trần gian
+ chỗ giam những người bị bắt (trong trò chơi bắt tù binh của trẻ con)
+ sòng bạc
+ quỷ, đồ chết tiệt (trong câu rủa)
+hell!
+ chết tiệt!
+what the hell do you want?
+ mày muốn cái chết tiệt gì?
+to go hell!
+ đồ chết tiệt!, quỷ tha ma bắt mày đi!
+a hell of a...
+ kinh khủng, ghê khiếp, không thể chịu được
+a hell of a way
+ đường xa kinh khủng
+a hell of a noise
+ tiếng ồn ào không thể chịu được
+to give somebody hell
+ đày đoạ ai, làm ai điêu đứng
+ xỉ vả ai, mắng nhiếc ai
+like hell
+ hết sức mình, chết thôi
+to work like hell
+ làm việc chết thôi
+to run like hell
+ chạy chết thôi, chạy như ma đuổi
+to ride hell for leather
+ (xem) ride
 
 @hello
-hə'lou/ (halloa) /hə'lou/ (hello) /'he'lou/  thán từ chào anh!, chào chị! này, này ô này! (tỏ ý ngạc nhiên)  danh từ tiếng chào tiếng gọi "này, này" ! tiếng kêu ô này "! (tỏ ý ngạc nhiên)  nội động từ chào gọi "này, này"  kêu "ô này" (tỏ ý ngạc nhiên)
+ /hə'lou/ (halloa) /hə'lou/ (hello) /'he'lou/
+  thán từ
+ chào anh!, chào chị!
+ này, này
+ ô này! (tỏ ý ngạc nhiên)
+  danh từ
+ tiếng chào
+ tiếng gọi "này, này" !
+ tiếng kêu ô này "! (tỏ ý ngạc nhiên)
+  nội động từ
+ chào
+ gọi "này, này" 
+ kêu "ô này" (tỏ ý ngạc nhiên)
 
-@hello
-hə'lou/ (halloa) /hə'lou/ (hello) /'he'lou/ thán từchào anh!, chào chị!này, nàyô này! (tỏ ý ngạc nhiên) danh từtiếng chàotiếng gọi "này, này" !tiếng kêu ô này "! (tỏ ý ngạc nhiên) nội động từchàogọi "này, này" kêu "ô này" (tỏ ý ngạc nhiên)
 @

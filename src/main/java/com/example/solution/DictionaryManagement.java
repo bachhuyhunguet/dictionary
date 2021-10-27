@@ -8,26 +8,6 @@ import java.util.Scanner;
 public class DictionaryManagement {
     public static String url = "E:\\dictionary\\javafx\\input\\dictionaries.txt";
 
-    public String setEnglish(String m) {
-        for (int i = 1; i < m.length() - 1; i++) {
-            if (m.charAt(i) == '\n') {
-                return m.substring(1,i); // gán từ tiếng anh cho Word_target
-            }
-        }
-        return null;
-    }
-
-    public String setVietNames(String m) {
-        int vt = 1;
-        for (int i = 1; i < m.length() - 1; i++) {
-            if (m.charAt(i) == '\n') {
-                vt = i;
-                break;
-            }
-        }
-        return m.substring(vt,m.length() - 1);
-    }
-
     public Dictionary InsertFromFile(Dictionary dictionary, String url) throws FileNotFoundException {
         File input = new File(url);
         Scanner scanner = new Scanner(input);
@@ -83,7 +63,7 @@ public class DictionaryManagement {
     public void dictionaryExportToFile(Dictionary dictionary) throws IOException {
         FileWriter writer = new FileWriter(this.url);
         for(int i = 0; i < dictionary.size(); i++) {
-            String temp = "@" + dictionary.get(i).getWord_target() + "\n" + dictionary.get(i).getWord_explain() + "\n";
+            String temp = "@" + dictionary.get(i).getWord_target() + "\n" + " " + dictionary.get(i).getWord_explain() + "\n";
             writer.write(temp);
             if (i == dictionary.size() -1) {
                 writer.write("@");

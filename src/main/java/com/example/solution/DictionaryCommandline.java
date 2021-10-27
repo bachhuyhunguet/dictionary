@@ -13,13 +13,7 @@ public class DictionaryCommandline  {
         List<String> line = new ArrayList<>();
         for(int i = 0; i < dictionar.list_word.size(); i++) {
             String english = dictionar.list_word.get(i).getWord_target() + "\n" + dictionar.list_word.get(i).getWord_explain();
-            //System.out.println(english);
-            if (!english.equals("\n")) {
-                line.add(english);
-            }
-            else {
-                continue;
-            }
+            line.add(english);
         }
         return line;
     }
