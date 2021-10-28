@@ -11,8 +11,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.scene.transform.Translate;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -70,12 +72,21 @@ public class HelloController implements Initializable{
     }
 
     public static Dictionary dictionaryEnglish = new Dictionary(); // dich tu tieng Anh sang tieng Viet
+    public static Dictionary dictionaryVietnamese = new Dictionary(); // dich tu Tieng Viet sang Tieng Viet
     public static Dictionary dictionary = new Dictionary();
     public static DictionaryManagement dictionaryManagement = new DictionaryManagement();
     public static DictionaryCommandline dictionaryCommandline = new DictionaryCommandline();
     public static int IndexViewAllItem;
 
+    private final double VX = 877;
+    private final double VY = 54;
+
+    private final double AX = 739;
+    private final double AY = 54;
+
     public static List<String> list = new ArrayList<>();
+
+    private int count = 0;
 
 
     @FXML
@@ -83,6 +94,9 @@ public class HelloController implements Initializable{
 
     @FXML
     private AnchorPane contentAdd;
+
+    @FXML
+    private Button buttonAdd;
 
     @FXML
     private TextField inputEnglish;
@@ -97,6 +111,9 @@ public class HelloController implements Initializable{
     private ListView<String> viewAll;
 
     @FXML
+    private ListView<String> suggest;
+
+    @FXML
     private TextField input; // dung cho search offline
 
     @FXML
@@ -104,6 +121,18 @@ public class HelloController implements Initializable{
 
     @FXML
     private ImageView nodata; // dung khi khong tim duoc tu
+
+    @FXML
+    private ImageView America;
+
+    @FXML
+    private ImageView VietNam;
+
+    @FXML
+    private ImageView America1;
+
+    @FXML
+    private ImageView VietNam1;
 
     @FXML
     void add(ActionEvent event) throws IOException {
@@ -116,8 +145,7 @@ public class HelloController implements Initializable{
             announce = "Chưa nhập từ vào";
             new_word = null;
         }
-        if (!dictionaryCommandline.checkInDictionary(dictionary,new_word)) {
-            dictionaryCommandline.Add(dictionary, new_word);
+        if (dictionaryCommandline.Add(dictionary, new_word)) {
             dictionaryManagement.dictionaryExportToFile(dictionary);
         }
         else {
@@ -136,8 +164,7 @@ public class HelloController implements Initializable{
         if (word.equals("")) {
             announce = "Chưa nhập từ cần xóa";
         }
-        if (dictionaryCommandline.wordInDictionary(dictionary,word)) {
-            dictionaryCommandline.Delete(dictionary, word);
+        if (dictionaryCommandline.Delete(dictionary, word)) {
             dictionaryManagement.dictionaryExportToFile(dictionary);
         }
         else {
@@ -201,10 +228,40 @@ public class HelloController implements Initializable{
         }
     }
 
+
+    // search offline
+
+    @FXML
+    void convert(ActionEvent event) {
+        count++;
+        input.setText("");
+        output.setText("");
+        if (count % 2 == 0) {
+            buttonAdd.setVisible(true);
+            VietNam.setVisible(true);
+            America.setVisible(true);
+            VietNam1.setVisible(false);
+            America1.setVisible(false);
+        }
+        else {
+            buttonAdd.setVisible(false);
+            VietNam.setVisible(false);
+            America.setVisible(false);
+            VietNam1.setVisible(true);
+            America1.setVisible(true);
+        }
+    }
+
     @FXML
     void Search(ActionEvent event) {
         String inputText =  input.getText(); // nhap tu vao
-        Word result = dictionaryCommandline.dictionarySearcher(dictionaryEnglish,inputText);
+        Word result;
+        if (count % 2 == 0) {
+            result = dictionaryCommandline.dictionarySearcher(dictionaryEnglish, inputText);
+        }
+        else {
+            result = dictionaryCommandline.dictionarySearcher(dictionaryVietnamese, inputText);
+        }
         if (result != null) {
             nodata.setVisible(false);
             output.setText(result.getWord_explain());
@@ -220,6 +277,14 @@ public class HelloController implements Initializable{
     }
 
     @FXML
+    void inputKeyPressed(KeyEvent event) {
+        suggest.setVisible(true);
+        if (event == null) {
+            suggest.setVisible(false);
+        }
+    }
+
+    @FXML
     void addInOffline(ActionEvent event) throws IOException {
         String target = input.getText();
         String explain = output.getText();
@@ -229,8 +294,7 @@ public class HelloController implements Initializable{
         if (target.equals("") && explain.equals("")) {
             new_word = null;
         }
-        if (!dictionaryCommandline.checkInDictionary(dictionary,new_word)) {
-            dictionaryCommandline.Add(dictionary, new_word);
+        if (dictionaryCommandline.Add(dictionary, new_word)) {
             dictionaryManagement.dictionaryExportToFile(dictionary);
         }
         else {
@@ -248,11 +312,16 @@ public class HelloController implements Initializable{
         try {
             String urlE = "E:\\dictionary\\javafx\\input\\English.txt";
             String urlD = "E:\\dictionary\\javafx\\input\\dictionaries.txt";
+            String urlV = "E:\\dictionary\\javafx\\input\\Vietnamese.txt";
             dictionaryManagement.InsertFromFile(dictionary, urlD);
             dictionaryManagement.InsertFromFile(dictionaryEnglish, urlE);
+            dictionaryManagement.InsertFromFile(dictionaryVietnamese, urlV);
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+        viewAll.setVisible(false);
+        if (count % 2 == 0) buttonAdd.setVisible(true);
         this.init();
         Search test = new Search(this.inputSearch, this.submitSearch, this.contentSearch, this.imageNotFound);
         test.init();

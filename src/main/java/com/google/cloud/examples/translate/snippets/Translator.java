@@ -9,11 +9,6 @@ import java.net.URLEncoder;
 
 public class Translator {
 
-    public static void main(String[] args) throws IOException {
-        String text = "Hello world!";
-        System.out.println("Translated text: " + translate("en", "vi", text));
-    }
-
     public static String translate(String langFrom, String langTo, String text) throws IOException {
         // INSERT YOU URL HERE
         String urlStr = "https://script.google.com/macros/s/AKfycbw2qKkvobro8WLNZUKi2kGwGwEO4W8cBavcKqcuCIGhGBBtVts/exec" +

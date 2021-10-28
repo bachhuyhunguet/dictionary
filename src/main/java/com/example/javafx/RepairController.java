@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -19,12 +20,13 @@ public class RepairController implements Initializable {
     private TextArea explain;
 
     @FXML
-    void Fix(ActionEvent event) {
+    void Fix(ActionEvent event) throws IOException {
         String Target = target.getText();
         String Explain = explain.getText();
         int index = HelloController.IndexViewAllItem;
         HelloController.dictionary.get(index).setWord_target(Target);
         HelloController.dictionary.get(index).setWord_explain(Explain);
+        HelloController.dictionaryManagement.dictionaryExportToFile(HelloController.dictionary);
     }
 
     @Override

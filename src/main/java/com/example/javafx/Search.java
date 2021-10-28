@@ -130,7 +130,7 @@ public class Search {
         String word = this.input.getText();
             this.bodySearch.getChildren().clear();
             oxfordData = this.oxford.getOxfordData(word);
-            String translateVietnamese = this.googleTranslate.getGoogleData(word);
+           String translateVietnamese = this.googleTranslate.getGoogleData(word);
             if(this.oxfordData == null || translateVietnamese == null) {
                 this.bodySearch.getChildren().add(this.wrapImage);
             } else {

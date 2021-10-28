@@ -4,8 +4,8 @@ import java.util.Objects;
 
 public class Word {
     public Word() {
-        this.word_target = "a";
-        this.word_explain = "a";
+        this.word_target = "";
+        this.word_explain = "";
     }
 
     public Word(String target, String explain) {

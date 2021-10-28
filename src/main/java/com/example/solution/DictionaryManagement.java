@@ -53,7 +53,7 @@ public class DictionaryManagement {
                         }
                     }
                 } else {
-                    explain = explain + m.substring(1,m.length()) + "\n";
+                    explain = explain + m.substring(0,m.length()) + "\n";
                 }
             }
         }

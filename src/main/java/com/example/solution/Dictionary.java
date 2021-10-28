@@ -1,15 +1,16 @@
 package com.example.solution;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Vector;
+import java.util.*;
 
 public class Dictionary {
     public List <Word> list_word = new Vector<>();
 
     public void add(Word word) {
         list_word.add(word);
+    }
+
+    public void add(int index, Word word) {
+        list_word.add(index, word);
     }
 
     public Word get(int i) {

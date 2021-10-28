@@ -6,20 +6,22 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 
-public class DictionaryCommandline  {
+public class DictionaryCommandline {
     public static int spaceword = 30;
+
     public List<String> showAllWordsWord(Dictionary dictionar) {
         List<String> line = new ArrayList<>();
-        for(int i = 0; i < dictionar.list_word.size(); i++) {
-            String english = dictionar.list_word.get(i).getWord_target() + "\n" + dictionar.list_word.get(i).getWord_explain();
+        for (int i = 0; i < dictionar.list_word.size(); i++) {
+            String english = dictionar.list_word.get(i).getWord_target() + "\n \n" + dictionar.list_word.get(i).getWord_explain() + "***********************************\n***********************************";
             line.add(english);
         }
         return line;
     }
 
-   public Word dictionarySearcher(Dictionary dictionary, String input) {
-       for (int i = 0; i < dictionary.size(); i++) {
+    public Word dictionarySearcher(Dictionary dictionary, String input) {
+        for (int i = 0; i < dictionary.size(); i++) {
             if (dictionary.get(i).getWord_target().equals(input)) {
                 return dictionary.get(i);
             }
@@ -53,26 +55,51 @@ public class DictionaryCommandline  {
         return false;
     }
 
-    public void Delete(Dictionary dictionary, String delete) {
+    public boolean Delete(Dictionary dictionary, String delete) {
         for (int i = 0; i < dictionary.size(); i++) {
             if (dictionary.get(i).getWord_explain().equals(delete) || dictionary.get(i).getWord_target().equals(delete)) {
                 dictionary.remove(i);
-                break;
+                return true;
             }
         }
+        return false;
     }
 
     public boolean checkInDictionary(Dictionary dictionary, Word word) {
         if (word == null) return true;
         for (int i = 0; i < dictionary.size(); i++) {
-            if (dictionary.get(i).getWord_target().equals(word.getWord_target()) && dictionary.get(i).getWord_explain().equals(word.getWord_explain())) return true;
+            if (dictionary.get(i).getWord_target().equals(word.getWord_target()) && dictionary.get(i).getWord_explain().equals(word.getWord_explain()))
+                return true;
         }
         return false;
     }
 
-    public void Add(Dictionary dictionary, Word word) {
-        if (!checkInDictionary(dictionary,word))
-        dictionary.add(word);
+    public boolean Add(Dictionary dictionary, Word word) {
+        if (dictionary.size() == 0) {
+            dictionary.add(word);
+            return true;
+        }
+        if (word.getWord_target().compareTo(dictionary.get(0).getWord_target()) < 0) {
+            dictionary.add(0, word);
+            return true;
+        }
+        int n = dictionary.size();
+        for (int i = 0; i < n - 1; i++) {
+            int wordi = word.getWord_target().compareTo(dictionary.get(i).getWord_target());
+            int iword = word.getWord_target().compareTo(dictionary.get(i+1).getWord_target());
+            if (wordi > 0 && iword < 0) {
+                dictionary.add(i + 1, word);
+                return true;
+            }
+            else if (wordi == 0 || iword == 0) {
+                break;
+            }
+        }
+        if (word.getWord_target().compareTo(dictionary.get(n - 1).getWord_target()) > 0) {
+            dictionary.add(word);
+            return true;
+        }
+        return false;
     }
 
 }

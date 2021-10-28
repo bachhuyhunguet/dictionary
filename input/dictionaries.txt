@@ -1,40 +1,142 @@
-@hell
- /hel/
+@
+
+@a
+/ei, ə/
+  danh từ,  số nhiều as,  a's
+ (thông tục) loại a, hạng nhất, hạng tốt nhất hạng rất tốt
+his health is a
+ sức khoẻ anh ta vào loại a
+ (âm nhạc) la
+a sharp
+ la thăng
+a flat
+ la giáng
+ người giả định thứ nhất; trường hợp giả định thứ nhất
+from a to z
+ từ đầu đến đuôi, tường tận
+not to know a from b
+ không biết tí gì cả; một chữ bẻ đôi cũng không biết
+  mạo từ
+ một; một (như kiểu); một (nào đó)
+a very cold day
+ một ngày rất lạnh
+a dozen
+ một tá
+a few
+ một ít
+all of a size
+ tất cả cùng một cỡ
+a Shakespeare
+ một (văn hào như kiểu) Sếch-xpia
+a Mr Nam
+ một ông Nam (nào đó)
+ cái, con, chiếc, cuốn, người, đứa...;
+a cup
+ cái chén
+a knife
+ con dao
+a son of the Party
+ người con của Đảng
+a Vietnamese grammar
+ cuốn ngữ pháp Việt Nam
+  giới từ
+ mỗi, mỗi một
+twice a week
+ mỗi tuần hai lần
+
+@abhor
+   /əb'hɔ:/
+  ngoại động từ
+ ghê tởm; ghét cay ghét đắng
+
+@book
+           /buk/
   danh từ
- địa ngục, âm ti; nơi tối tăm khổ cực
-life is a hell under colonialism
- dưới ách thực dân cuộc sống làm một địa ngục
-hell on earth
- địa ngục trần gian
- chỗ giam những người bị bắt (trong trò chơi bắt tù binh của trẻ con)
- sòng bạc
- quỷ, đồ chết tiệt (trong câu rủa)
-hell!
- chết tiệt!
-what the hell do you want?
- mày muốn cái chết tiệt gì?
-to go hell!
- đồ chết tiệt!, quỷ tha ma bắt mày đi!
-a hell of a...
- kinh khủng, ghê khiếp, không thể chịu được
-a hell of a way
- đường xa kinh khủng
-a hell of a noise
- tiếng ồn ào không thể chịu được
-to give somebody hell
- đày đoạ ai, làm ai điêu đứng
- xỉ vả ai, mắng nhiếc ai
-like hell
- hết sức mình, chết thôi
-to work like hell
- làm việc chết thôi
-to run like hell
- chạy chết thôi, chạy như ma đuổi
-to ride hell for leather
- (xem) ride
+ sách
+old book
+ sách cũ
+to writer a book
+ viết một cuốn sách
+book of stamps
+ một tập tem
+book I
+ tập 1
+ (số nhiều) sổ sách kế toán
+ (the book) kinh thánh
+!to be someone's bad books
+ không được ai ưa
+!to be someone's good book
+ được ai yêu mến
+!to bring someone to book
+ hỏi tội và trừng phạt ai
+!to know something like a book
+ (xem) know
+!to speak by the book
+ nói có sách, mách có chứng
+!to suit one's book
+ hợp với ý nguyện của mình
+!to speak (talk) like a book
+ nói như sách
+!to take a leat out of someone's book
+ (xem) leaf
+  ngoại động từ
+ viết vào vở; ghi vào vở
+ ghi tên (người mua về trước)
+ ghi địa chỉ (để chuyển hàng)
+ giữ (chỗ) trước, mua về trước)
+to book searts for the threatre
+ mua vé trước để đi xem hát
+ lấy vé (xe lửa...)
+!I am booked
+ tôi bị tóm rồi, tôi bị giữ rồi
+
+@dance
+    /dɑ:ns/
+  danh từ
+ sự nhảy múa; sự khiêu vũ
+ bài nhạc nhảy; điệu nhạc khiêu vũ
+ buổi liên hoan khiêu vũ
+!to lead the dance
+ (xem) lead
+!to lend a person a pretty dance
+ gây khó khăn trở ngại cho ai; làm phiền ai
+!St Vitus'd dance
+ (y học) chứng múa giật
+  nội động từ
+ nhảy múa, khiêu vũ
+ nhảy lên, rộn lên; nhún nhảy, rung rinh, bập bềnh, rập rình
+her heart danced with joy
+ lòng cô ta rộn lên sung sướng
+to dance for joy
+ nhảy lên vì sung sướng
+a boat dancing on the waves
+ con thuyền bập bềnh trên sóng
+the leaves are dancing in the wind
+ lá cây rung rinh trong gió
+  nội động từ
+ nhảy
+to dance the tango
+ nhảy điệu tăngô
+ làm cho nhảy múa
+ tung tung nhẹ, nhấc lên nhấc xuống
+to dance a baby in one's arms
+ tung tung nhẹ em bé trong tay
+!to dance attendance upon somebody
+ phải chờ đợi ai lâu
+ luôn luôn theo bên cạnh ai
+!to dance away one's time
+ nhảy múa cho tiêu thời giờ
+!to dance onself into somebody's favour
+ nhờ nhảy múa mà chiếm được lòng yêu quý của ai
+!to dance one's head off
+ nhảy múa chóng cả mặt
+!to dance to somebody's pipes (whistle, tume, piping)
+ để cho ai xỏ mũi; để cho ai điều khiển
+!to dance on nothing
+ bị treo cổ
 
 @hello
- /hə'lou/ (halloa) /hə'lou/ (hello) /'he'lou/
+       /hə'lou/ (halloa) /hə'lou/ (hello) /'he'lou/
   thán từ
  chào anh!, chào chị!
  này, này
@@ -47,5 +149,92 @@ to ride hell for leather
  chào
  gọi "này, này" 
  kêu "ô này" (tỏ ý ngạc nhiên)
+
+@word
+       /wə:d/
+  danh từ
+ từ
+to translate word for word
+ dịch theo từng từ một
+ lời nói, lời
+big words
+ những lời huênh hoang khoác lác, những lời loè bịp
+a man of few words
+ một người ít nói
+in other words
+ nói cách khác
+in so many words
+ nói đúng như vậy, nói toạc ra
+by word of mouth
+ bằng lời nói; truyền khẩu
+spoken word
+ lời nói
+I want a word with you
+ tôi muốn nói với anh một điều
+high (hard, warm, hot, sharp) words
+ lời nói nặng
+burning words
+ lời lẽ hăng hái kích động
+wild and whirling word
+ lời lẽ thiếu cân nhắc, lời nói tếu
+to have no word for
+ không biết nói thế nào về
+beyond words
+ không nói được, không thể tả xiết
+ lời báo tin, tin tức, lời nhắn
+to leave word that
+ báo tin rằng, báo rằng
+word came that
+ người ta báo tin rằng
+ lời hứa, lời
+to be as good as one's word
+ làm nhiều hơn đã hứa, nói ít làm nhiều
+to give one's word
+ hứa
+to keep one's word
+ giữ lời hứa
+a man of his word
+ người giữ lời hứa
+upon my word
+ xin lấy danh dự mà thề
+ lệnh, khẩu hiệu
+to give the word to do something
+ ra lệnh làm điều gì
+ (số nhiều) sự cãi nhau, lời qua tiếng lại
+to have words with
+ cãi nhau với
+they had words
+ họ đã có lời qua tiếng lại với nhau
+to proceed from words to blows
+ từ cãi nhau đến đánh nhau
+!at a word
+ lập tức
+!go give someone one's good word
+ giới thiệu ai (làm công tác gì...)
+!hard words break no bones
+!fine words butter no parsnips
+!words are but wind
+ lời nói không ăn thua gì (so với hành động)
+!not to have a word to throw at a dog
+ (xem) dog
+!the last word in
+ kiểu mới nhất về (cái gì); thành tựu mới nhất về (cái gì)
+!on (with) the word
+ vừa nói (là làm ngay)
+!to say a good word for
+ bào chữa, nói hộ
+ khen ngợi
+!to suit the action to the word
+ thực hiện ngay lời doạ dẫm; thực hiện ngay lời hứa
+!a word in (out of) season
+ lời nói đúng (không đúng) lúc
+!a word to the wise
+ đối với một người khôn một lời cũng đủ
+!the Word of God; God's Word
+ (tôn giáo) sách Phúc âm
+  ngoại động từ
+ phát biểu, nói lên, bày tỏ, diễn tả
+to word an idea
+ phát biểu một ý kiến
 
 @
