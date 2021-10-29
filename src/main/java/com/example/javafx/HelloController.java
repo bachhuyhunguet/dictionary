@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
@@ -23,7 +24,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
-public class HelloController implements Initializable{
+public class HelloController implements Initializable {
 
     public HBox bgSearch;
     public HBox bgNote;
@@ -59,11 +60,11 @@ public class HelloController implements Initializable{
         this.contents.add(this.contentSetting);
         this.animationApp.buttonClick(this.buttons, this.contents);
         this.animationApp.hoverAnimation(this.buttons);
-        this.search = new Search(this.inputSearch, this.submitSearch, this.contentSearch,this.imageNotFound);
+        this.search = new Search(this.inputSearch, this.submitSearch, this.contentSearch, this.imageNotFound);
         this.search.searchSol();
 
         //run search
-        Search search= new Search(this.inputSearch, this.submitSearch, this.contentSearch, this.imageNotFound);
+        Search search = new Search(this.inputSearch, this.submitSearch, this.contentSearch, this.imageNotFound);
         search.init();
         search.searchSol();
         //run game
@@ -136,8 +137,8 @@ public class HelloController implements Initializable{
 
     @FXML
     void add(ActionEvent event) throws IOException {
-        String target = inputEnglish.getText();
-        String explain = inputViet.getText();
+        String target = inputEnglish.getText().trim().toLowerCase();
+        String explain = inputViet.getText().trim().toLowerCase();
         String announce = "Từ này đã có trong danh sách yêu thích";
 
         Word new_word = new Word(target, explain);
@@ -147,8 +148,7 @@ public class HelloController implements Initializable{
         }
         if (dictionaryCommandline.Add(dictionary, new_word)) {
             dictionaryManagement.dictionaryExportToFile(dictionary);
-        }
-        else {
+        } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("thông báo");
             alert.setHeaderText(announce);
@@ -159,15 +159,14 @@ public class HelloController implements Initializable{
 
     @FXML
     void delete(ActionEvent event) throws IOException {
-        String word = inputWord.getText();
+        String word = inputWord.getText().trim().toLowerCase();
         String announce = "Từ này không có trong danh sách yêu thích";
         if (word.equals("")) {
             announce = "Chưa nhập từ cần xóa";
         }
         if (dictionaryCommandline.Delete(dictionary, word)) {
             dictionaryManagement.dictionaryExportToFile(dictionary);
-        }
-        else {
+        } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("thông báo");
             alert.setHeaderText(announce);
@@ -196,7 +195,8 @@ public class HelloController implements Initializable{
         viewAll.getItems().addAll(list);
     }
 
-    @FXML // show ra item trong listView
+    @FXML
+        // show ra item trong listView
     void itemShow(MouseEvent event) throws IOException {
         if (!viewAll.getSelectionModel().getSelectedItems().equals("")) {
             int n = viewAll.getSelectionModel().getSelectedIndex();
@@ -209,7 +209,7 @@ public class HelloController implements Initializable{
             ButtonType buttonTypeYes = new ButtonType("YES", ButtonBar.ButtonData.YES);
             ButtonType buttonTypeNo = new ButtonType("NO", ButtonBar.ButtonData.NO);
 
-            alert.getButtonTypes().setAll(buttonTypeYes,buttonTypeNo);
+            alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo);
 
             Optional<ButtonType> result = alert.showAndWait();
 
@@ -222,7 +222,7 @@ public class HelloController implements Initializable{
                 stage.setTitle("Sửa từ");
                 stage.initModality(Modality.WINDOW_MODAL);
                 stage.initOwner(
-                        ((Node)event.getSource()).getScene().getWindow() );
+                        ((Node) event.getSource()).getScene().getWindow());
                 stage.show();
             }
         }
@@ -242,8 +242,7 @@ public class HelloController implements Initializable{
             America.setVisible(true);
             VietNam1.setVisible(false);
             America1.setVisible(false);
-        }
-        else {
+        } else {
             buttonAdd.setVisible(false);
             VietNam.setVisible(false);
             America.setVisible(false);
@@ -254,12 +253,12 @@ public class HelloController implements Initializable{
 
     @FXML
     void Search(ActionEvent event) {
-        String inputText =  input.getText(); // nhap tu vao
+        suggest.setVisible(false);
+        String inputText = input.getText().trim().toLowerCase(); // nhap tu vao
         Word result;
         if (count % 2 == 0) {
             result = dictionaryCommandline.dictionarySearcher(dictionaryEnglish, inputText);
-        }
-        else {
+        } else {
             result = dictionaryCommandline.dictionarySearcher(dictionaryVietnamese, inputText);
         }
         if (result != null) {
@@ -270,28 +269,43 @@ public class HelloController implements Initializable{
                 output.setText("");
                 nodata.setVisible(true);
             }
-        }
-        else {
+        } else {
             nodata.setVisible(true);
         }
     }
 
     @FXML
-    void inputKeyPressed(KeyEvent event) {
-        suggest.setVisible(true);
-        if (event == null) {
+    void itemSuggest(MouseEvent event) {
+        if (!suggest.getSelectionModel().getSelectedItems().equals("")) {
+            String selection = suggest.getSelectionModel().getSelectedItem();
+            Word result;
+            if (count % 2 == 0) {
+                result = dictionaryCommandline.dictionarySearcher(dictionaryEnglish, selection);
+            } else {
+                result = dictionaryCommandline.dictionarySearcher(dictionaryVietnamese, selection);
+            }
+            if (result != null) {
+                nodata.setVisible(false);
+                output.setText(result.getWord_explain());
+                if (result.getWord_target().isEmpty()) {
+                    output.setText("");
+                    nodata.setVisible(true);
+                }
+            } else {
+                nodata.setVisible(true);
+            }
             suggest.setVisible(false);
         }
     }
 
     @FXML
     void addInOffline(ActionEvent event) throws IOException {
-        String target = input.getText();
-        String explain = output.getText();
+        String target = input.getText().trim().toLowerCase();
+        String explain = output.getText().trim().toLowerCase();
         String announce = "Không thêm vào được";
 
         Word new_word = new Word(target,explain);
-        if (target.equals("") && explain.equals("")) {
+        if (target.isEmpty() || explain.isEmpty()) {
             new_word = null;
         }
         if (dictionaryCommandline.Add(dictionary, new_word)) {
@@ -316,11 +330,56 @@ public class HelloController implements Initializable{
             dictionaryManagement.InsertFromFile(dictionary, urlD);
             dictionaryManagement.InsertFromFile(dictionaryEnglish, urlE);
             dictionaryManagement.InsertFromFile(dictionaryVietnamese, urlV);
-
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+        input.setOnKeyPressed((KeyEvent e) ->
+        {
+            if (e.getCode() == KeyCode.ENTER) {
+                suggest.setVisible(false);
+                String inputText = input.getText().trim().toLowerCase(); // nhap tu vao
+                Word result;
+                if (count % 2 == 0) {
+                    result = dictionaryCommandline.dictionarySearcher(dictionaryEnglish, inputText);
+                } else {
+                    result = dictionaryCommandline.dictionarySearcher(dictionaryVietnamese, inputText);
+                }
+                if (result != null) {
+                    nodata.setVisible(false);
+                    output.setText(result.getWord_explain());
+                    if (result.getWord_target().isEmpty()) {
+                        result = null;
+                        output.setText("");
+                        nodata.setVisible(true);
+                    }
+                } else {
+                    nodata.setVisible(true);
+                }
+            }
+        });
+
+        input.textProperty().addListener((observableValue, s1, t1) -> {
+                    if (!input.getText().trim().isEmpty()) {
+                        suggest.setVisible(true);
+                        List<String> list;
+                        if (count % 2 == 0) {
+                            list = dictionaryCommandline.suggestWord(dictionaryEnglish, t1);
+                        }
+                        else {
+                            list = dictionaryCommandline.suggestWord(dictionaryVietnamese, t1);
+                        }
+                        suggest.getItems().clear();
+                        suggest.getItems().addAll(list);
+                    }
+                    else {
+                        suggest.getItems().clear();
+                        suggest.setVisible(false);
+                    }
+                }
+        );
+
         viewAll.setVisible(false);
+        suggest.setVisible(false);
         if (count % 2 == 0) buttonAdd.setVisible(true);
         this.init();
         Search test = new Search(this.inputSearch, this.submitSearch, this.contentSearch, this.imageNotFound);

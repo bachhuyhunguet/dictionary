@@ -89,15 +89,15 @@
                         </Button>
                      </children>
                   </AnchorPane>
-                  <Button layoutX="516.0" mnemonicParsing="false" onAction="#showAll" prefHeight="62.0" prefWidth="100.0" style="-fx-background-radius: 50px;" text="Show All" AnchorPane.bottomAnchor="590.0" AnchorPane.leftAnchor="516.0" AnchorPane.rightAnchor="334.0" AnchorPane.topAnchor="50.0" />
+                  <Button layoutX="357.0" layoutY="50.0" mnemonicParsing="false" onAction="#showAll" prefHeight="42.0" prefWidth="85.0" style="-fx-background-radius: 50px;" text="Show All" AnchorPane.bottomAnchor="590.0" AnchorPane.leftAnchor="357.0" AnchorPane.rightAnchor="526.0" AnchorPane.topAnchor="50.0" />
                   <ListView fx:id="viewAll" layoutX="527.0" layoutY="198.0" onMouseClicked="#itemShow" prefHeight="454.0" prefWidth="406.0" style="-fx-border-radius: 50px; -fx-background-color: #8B008B;" />
                </children>
                 </AnchorPane>
                 <AnchorPane fx:id="contentGame" layoutX="50.0" layoutY="50.0" prefHeight="850.0" prefWidth="600.0" style="-fx-background-color: #333; -fx-background-radius: 50px; visibility: false;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="20.0" />
-                <AnchorPane fx:id="contentSetting" prefHeight="700.0" prefWidth="950.0" style="-fx-background-color: #333; -fx-background-radius: 50px; visibility: true;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-6.0" AnchorPane.topAnchor="0.0">
+                <AnchorPane fx:id="contentSetting" prefHeight="700.0" prefWidth="950.0" style="-fx-background-color: #333; -fx-background-radius: 50px; visibility: false;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-6.0" AnchorPane.topAnchor="0.0">
                     <children>
                         <Button layoutX="582.0" layoutY="64.0" mnemonicParsing="false" onAction="#Search" prefHeight="30.0" prefWidth="64.0" text="Search" />
-                  <TextField fx:id="input" layoutX="174.0" layoutY="66.0" onKeyPressed="#inputKeyPressed" prefHeight="26.0" prefWidth="351.0" promptText="Nhập từ" />
+                  <TextField fx:id="input" layoutX="174.0" layoutY="66.0" prefHeight="26.0" prefWidth="351.0" promptText="Nhập từ" />
                   <TextArea fx:id="output" layoutX="183.0" layoutY="181.0" prefHeight="410.0" prefWidth="546.0" />
                   <Button fx:id="buttonAdd" layoutX="76.0" layoutY="195.0" minWidth="42.0" mnemonicParsing="false" onAction="#addInOffline" prefHeight="35.0" prefWidth="35.0" AnchorPane.leftAnchor="76.0" AnchorPane.rightAnchor="838.0" AnchorPane.topAnchor="195.0">
                      <graphic>
@@ -142,7 +142,7 @@
                         <Image url="@img/VietNam.png" />
                      </image>
                   </ImageView>
-                  <ListView fx:id="suggest" layoutX="174.0" layoutY="95.0" prefHeight="200.0" prefWidth="351.0" style="visibility: false;" />
+                  <ListView fx:id="suggest" layoutX="174.0" layoutY="95.0" onMouseClicked="#itemSuggest" prefHeight="200.0" prefWidth="351.0" />
                     </children>
                 </AnchorPane>
             </children></AnchorPane>

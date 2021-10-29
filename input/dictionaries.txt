@@ -1,7 +1,5 @@
-@
-
 @a
-/ei, ə/
+       /ei, ə/
   danh từ,  số nhiều as,  a's
  (thông tục) loại a, hạng nhất, hạng tốt nhất hạng rất tốt
 his health is a
@@ -45,12 +43,12 @@ twice a week
  mỗi tuần hai lần
 
 @abhor
-   /əb'hɔ:/
+          /əb'hɔ:/
   ngoại động từ
  ghê tởm; ghét cay ghét đắng
 
 @book
-           /buk/
+                  /buk/
   danh từ
  sách
 old book
@@ -91,7 +89,7 @@ to book searts for the threatre
  tôi bị tóm rồi, tôi bị giữ rồi
 
 @dance
-    /dɑ:ns/
+           /dɑ:ns/
   danh từ
  sự nhảy múa; sự khiêu vũ
  bài nhạc nhảy; điệu nhạc khiêu vũ
@@ -135,8 +133,16 @@ to dance a baby in one's arms
 !to dance on nothing
  bị treo cổ
 
+@he
+   /hi:/
+  đại từ
+ nó, anh ấy, ông ấy... (chỉ người và động vật giống đực)
+  danh từ
+ đàn ông; con đực
+ (định ngữ) đực (động vật)
+
 @hello
-       /hə'lou/ (halloa) /hə'lou/ (hello) /'he'lou/
+              /hə'lou/ (halloa) /hə'lou/ (hello) /'he'lou/
   thán từ
  chào anh!, chào chị!
  này, này
@@ -150,8 +156,108 @@ to dance a baby in one's arms
  gọi "này, này" 
  kêu "ô này" (tỏ ý ngạc nhiên)
 
+@kill
+       /kil/
+  ngoại động từ
+ giết, giết chết, làm chết, diệt ((nghĩa đen) & (nghĩa bóng))
+to be killed on the spot
+ bị giết ngay tại chỗ
+to kill one's time
+ giết thì giờ
+to kill a colour
+ làm chết màu
+ ngả, giết làm thịt (một con bò...)
+ tắt (máy...); làm át, làm lấp (tiếng...)
+the drums kill the string
+ tiếng trống làm át tiếng đàn dây
+ làm tiêu tan, làm hết (hy vọng...)
+ làm khỏi, trừ diệt (bệnh, đau...)
+ làm thất bại, làm hỏng; bác bỏ
+to kill a bill
+ bác bỏ một dự luật (ở quốc hội...)
+ làm phục lăn, làm choáng người, làm thích mê, làm cười vỡ bụng
+got up (dolled up, dressed) to kill
+ diện choáng người làm cho thiên hạ phục lăn
+the story nearly killed me
+ câu chuyện làm cho tôi cười gần chết
+ gây tai hại, làm chết dở
+to kill somebody with kindness
+ vì ân cần tử tế quá mà gây tai hại cho ai
+ (thể dục,thể thao) bạt một cú quyết định (quần vợt); chận đứng (bóng đá)
+ (kỹ thuật) ăn mòn
+  nội động từ
+ giết, giết chết
+ giết thịt được
+pigs do not kill well at that age
+ lợn vào tuổi này giết thịt chưa được tốt
+!to kill off
+ giết sạch, tiêu diệt
+!to kill by inches
+ giết dần, giết mòn
+!to kill two birds with one stone
+ (xem) bird
+!to laugh fit to kill
+ (từ Mỹ,nghĩa Mỹ) cười vỡ bụng
+  danh từ
+ sự giết
+ thú giết được (trong cuộc đi săn)
+
+@lo
+  /lou/
+  thán từ
+ (từ cổ,nghĩa cổ) trông kìa!, nhìn kìa!
+!lo and behold!
+(đùa cợt) trông lạ chưa kìa!
+
+@low
+      /lou/
+  danh từ
+ tiếng rống (trâu bò)
+  động từ
+ rống (trâu bò)
+  danh từ
+ ngọn lửa
+  nội động từ
+ rực cháy, bốc cháy
+  danh từ
+ mức thấp, con số thấp
+ số thấp nhất (ô tô)
+to put a car in low
+ gài số một
+ con bài thấp nhất
+ (thể dục,thể thao) tỷ số thấp nhất
+  tính từ
+ thấp, bé, lùn
+a man of low stature
+ người thấp bé
+ thấp, cạn
+at low water
+ lúc triều xuống
+ thấp bé, nhỏ
+a low voice
+ tiếng nói khẽ
+ thấp, hạ, kém, chậm
+to dell at low price
+ bán giá hạ
+to get low wages
+ được lương thấp
+low temperature
+ độ nhiệt thấp
+low speed
+ tốc độ chậm
+to have a low opinion of somebody
+ không trọng ai
+ thấp hèn, ở bậc dưới; tầm thường, ti tiện, hèm mọn
+all sorts of people, high and low
+ tất cả mọi hạng người từ kẻ sang cho đến người hèn
+a low fellow
+ một kẻ đê hèn
+ yếu, suy nhược, kém ăn, không bổ
+to be in a low state of health
+ trong tình trạng sức khoẻ t) có công suất nhỏ (máy)
+
 @word
-       /wə:d/
+              /wə:d/
   danh từ
  từ
 to translate word for word

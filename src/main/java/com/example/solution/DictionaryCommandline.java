@@ -20,6 +20,19 @@ public class DictionaryCommandline {
         return line;
     }
 
+    public List<String> suggestWord(Dictionary dictionary, String input) {
+        List<String> line = new ArrayList<>();
+        for(int i = 0; i < dictionary.list_word.size(); i++) {
+            String english = dictionary.get(i).getWord_target();
+            if(english.length() >= input.length()) {
+                if(english.substring(0,input.length()).equals(input)) {
+                    line.add(dictionary.get(i).getWord_target());
+                }
+            }
+        }
+        return line;
+    }
+
     public Word dictionarySearcher(Dictionary dictionary, String input) {
         for (int i = 0; i < dictionary.size(); i++) {
             if (dictionary.get(i).getWord_target().equals(input)) {
@@ -75,6 +88,7 @@ public class DictionaryCommandline {
     }
 
     public boolean Add(Dictionary dictionary, Word word) {
+        if (word == null) return false;
         if (dictionary.size() == 0) {
             dictionary.add(word);
             return true;
